@@ -1,54 +1,79 @@
 /* style.css */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap'); /* Modern sans-serif font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+/* Modern sans-serif font */
 
 :root {
     /* Light Theme Colors (Soft & Inviting) */
-    --body-bg: #f0f2f5; /* Off-white, subtle background */
-    --container-bg: #ffffff; /* Pure white for main card */
-    --text-color: #34495e; /* Dark blue-gray for main text */
-    --label-color: #5d748f; /* Slightly lighter blue-gray for labels */
-    --border-color: #e0e0e0; /* Soft gray for borders */
-    --option-group-bg: #f8f9fa; /* Very light gray for grouped options */
-    --error-color: #e74c3c; /* Red for errors */
-    --button-primary-bg: #007bff; /* Bright blue for primary actions */
-    --button-primary-hover-bg: #0056b3; /* Darker blue on hover */
-    --button-secondary-bg: #6c757d; /* Gray for secondary actions */
-    --button-secondary-hover-bg: #5a6268; /* Darker gray on hover */
-    --button-copied-bg: #28a745; /* Green for copied state */
-    --strength-bar-bg: #e9ecef; /* Light gray for strength bar track */
-    --input-bg: #ffffff;
-    --input-border: #ced4da;
-    --input-focus-border: #80bdff;
-    --shadow-light: rgba(0, 0, 0, 0.05) 0px 1px 3px, rgba(0, 0, 0, 0.03) 0px 1px 2px; /* Subtle shadow */
-    --shadow-medium: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px; /* Deeper shadow */
-    --shadow-button: rgba(0, 0, 0, 0.1) 0px 2px 4px; /* For button press effect */
-}
-
-body.dark-mode {
-    /* Dark Theme Colors (Deep & Modern) */
-    --body-bg: #212529; /* Very dark gray */
-    --container-bg: #2c3e50; /* Dark blue-gray */
-    --text-color: #ecf0f1; /* Light gray */
-    --label-color: #bdc3c7; /* Muted light gray */
-    --border-color: #495057; /* Darker gray for borders */
-    --option-group-bg: #34495e; /* Slightly lighter than container for option group */
+    --body-bg: #f0f2f5;
+    /* Off-white, subtle background */
+    --container-bg: #ffffff;
+    /* Pure white for main card */
+    --text-color: #34495e;
+    /* Dark blue-gray for main text */
+    --label-color: #5d748f;
+    /* Slightly lighter blue-gray for labels */
+    --border-color: #e0e0e0;
+    /* Soft gray for borders */
+    --option-group-bg: #f8f9fa;
+    /* Very light gray for grouped options */
     --error-color: #e74c3c;
-    --button-primary-bg: #66b3ff; /* Lighter blue for dark mode */
-    --button-primary-hover-bg: #4da6ff;
-    --button-secondary-bg: #7f8c8d; /* Muted gray */
-    --button-secondary-hover-bg: #6d7576;
-    --button-copied-bg: #2ecc71; /* Brighter green */
-    --strength-bar-bg: #495057; /* Dark gray for track */
-    --input-bg: #3b5066;
-    --input-border: #495057;
-    --input-focus-border: #80bdff;
-    --shadow-light: rgba(0, 0, 0, 0.2) 0px 1px 3px, rgba(0, 0, 0, 0.1) 0px 1px 2px;
-    --shadow-medium: rgba(0, 0, 0, 0.3) 0px 4px 6px -1px, rgba(0, 0, 0, 0.2) 0px 2px 4px -1px;
-    --shadow-button: rgba(0, 0, 0, 0.3) 0px 2px 4px;
+    /* Red for errors */
+    --button-primary-bg: #007bff;
+    /* Bright blue for primary actions */
+    --button-primary-hover-bg: #0056b3;
+    /* Darker blue on hover */
+    --button-secondary-bg: #6c757d;
+    /* Gray for secondary actions */
+    --button-secondary-hover-bg: #5a6268;
+    /* Darker gray on hover */
+    --button-copied-bg: #28a745;
+    /* Green for copied state */
+    --strength-bar-bg: #e9ecef;
+    /* Light gray for strength bar background */
+
+    /* Dark Theme Colors (Deep & Modern) */
+    --dark-body-bg: #2c3e50;
+    /* Dark blue-gray */
+    --dark-container-bg: #34495e;
+    /* Slightly lighter dark blue-gray */
+    --dark-text-color: #ecf0f1;
+    /* Off-white for text */
+    --dark-label-color: #bdc3c7;
+    /* Lighter gray for labels */
+    --dark-border-color: #4a627a;
+    /* Darker blue-gray for borders */
+    --dark-option-group-bg: #2a3b4c;
+    /* Even darker for grouped options */
+    --dark-error-color: #e74c3c;
+    /* Red for errors (same) */
+    --dark-button-primary-bg: #009688;
+    /* Teal for primary actions */
+    --dark-button-primary-hover-bg: #00796b;
+    /* Darker teal on hover */
+    --dark-button-secondary-bg: #7f8c8d;
+    /* Gray for secondary actions */
+    --dark-button-secondary-hover-bg: #6c7a89;
+    /* Darker gray on hover */
+    --dark-button-copied-bg: #27ae60;
+    /* Green for copied state (same) */
+    --dark-strength-bar-bg: #4a627a;
+    /* Darker gray for strength bar background */
+
+    /* Strength Bar Colors */
+    --score-0-color: #e74c3c;
+    /* Very Weak (Red) */
+    --score-1-color: #f39c12;
+    /* Weak (Orange) */
+    --score-2-color: #f1c40f;
+    /* Fair (Yellow) */
+    --score-3-color: #2ecc71;
+    /* Good (Green) */
+    --score-4-color: #1abc9c;
+    /* Strong (Turquoise) */
 }
 
 body {
-    font-family: 'Inter', sans-serif; /* Applied font */
+    font-family: 'Inter', sans-serif;
     background-color: var(--body-bg);
     color: var(--text-color);
     display: flex;
@@ -56,240 +81,319 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    padding: 20px;
-    box-sizing: border-box;
     transition: background-color 0.3s ease, color 0.3s ease;
-    overflow-y: auto; /* Allow scrolling for smaller screens */
+    line-height: 1.6;
+    padding: 20px;
+    /* Add padding for small screens */
+    box-sizing: border-box;
+    /* Include padding in element's total width and height */
+}
+
+body.dark-mode {
+    background-color: var(--dark-body-bg);
+    color: var(--dark-text-color);
 }
 
 .container {
     background-color: var(--container-bg);
-    border-radius: 12px;
     padding: 30px;
-    box-shadow: var(--shadow-medium); /* Use medium shadow for depth */
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 500px; /* Max width for larger screens */
+    max-width: 500px;
+    text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Consistent spacing between sections */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    gap: 20px;
+    position: relative;
+    /* For theme toggle positioning */
+    border: 1px solid var(--border-color);
+    /* Subtle border */
+    box-sizing: border-box;
+}
+
+body.dark-mode .container {
+    background-color: var(--dark-container-bg);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    border-color: var(--dark-border-color);
 }
 
 h1 {
-    text-align: center;
     color: var(--text-color);
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     font-size: 2.2em;
-    font-weight: 600;
+    font-weight: 700;
 }
 
-/* Theme Toggle */
+body.dark-mode h1 {
+    color: var(--dark-text-color);
+}
+
 .theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
     display: flex;
-    justify-content: flex-end; /* Align right */
     align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
+    gap: 8px;
     font-size: 0.9em;
     color: var(--label-color);
 }
 
+body.dark-mode .theme-toggle {
+    color: var(--dark-label-color);
+}
+
 .theme-toggle input[type="checkbox"] {
-    /* Hide default checkbox */
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
-    width: 40px; /* Width of the switch */
-    height: 20px; /* Height of the switch */
+    -webkit-appearance: none;
+    width: 40px;
+    height: 20px;
     background-color: var(--border-color);
-    border-radius: 10px; /* Make it pill-shaped */
+    border-radius: 10px;
     position: relative;
     cursor: pointer;
-    outline: none;
     transition: background-color 0.3s ease;
+}
+
+body.dark-mode .theme-toggle input[type="checkbox"] {
+    background-color: var(--dark-border-color);
 }
 
 .theme-toggle input[type="checkbox"]::before {
     content: '';
+    width: 16px;
+    height: 16px;
+    background-color: var(--container-bg);
+    border-radius: 50%;
     position: absolute;
     top: 2px;
     left: 2px;
-    width: 16px; /* Size of the thumb */
-    height: 16px;
-    background-color: var(--button-secondary-bg); /* Darker thumb in light mode */
-    border-radius: 50%;
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
+body.dark-mode .theme-toggle input[type="checkbox"]::before {
+    background-color: var(--dark-text-color);
+}
+
 .theme-toggle input[type="checkbox"]:checked {
-    background-color: var(--button-primary-bg); /* Blue when checked (dark mode) */
+    background-color: var(--button-primary-bg);
+}
+
+body.dark-mode .theme-toggle input[type="checkbox"]:checked {
+    background-color: var(--dark-button-primary-bg);
 }
 
 .theme-toggle input[type="checkbox"]:checked::before {
-    transform: translateX(20px); /* Move thumb to the right */
-    background-color: #fff; /* White thumb in dark mode */
+    transform: translateX(20px);
 }
 
-
-/* Generation Type Selection */
 .generation-type-selection {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    margin-bottom: 15px;
+    gap: 15px;
+    margin-bottom: 20px;
     background-color: var(--option-group-bg);
     padding: 10px;
     border-radius: 8px;
-    box-shadow: var(--shadow-light);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+body.dark-mode .generation-type-selection {
+    background-color: var(--dark-option-group-bg);
+    border-color: var(--dark-border-color);
 }
 
 .generation-type-selection input[type="radio"] {
-    display: none; /* Hide default radio button */
+    display: none;
 }
 
 .generation-type-selection label {
-    cursor: pointer;
-    padding: 8px 15px;
-    border: 1px solid var(--border-color);
+    padding: 10px 20px;
     border-radius: 6px;
-    color: var(--label-color);
-    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
     font-weight: 500;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
-.generation-type-selection input[type="radio"]:checked + label {
+body.dark-mode .generation-type-selection label {
+    color: var(--dark-text-color);
+    border-color: var(--dark-border-color);
+}
+
+.generation-type-selection input[type="radio"]:checked+label {
     background-color: var(--button-primary-bg);
-    color: #ffffff;
+    color: #fff;
     border-color: var(--button-primary-bg);
-    box-shadow: rgba(0, 123, 255, 0.25) 0px 4px 8px -2px; /* Subtle shadow for active tab */
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3);
 }
 
-.generation-type-selection label:hover {
-    background-color: var(--body-bg); /* Subtle hover effect */
-}
-body.dark-mode .generation-type-selection label:hover {
-    background-color: #4a6078;
+body.dark-mode .generation-type-selection input[type="radio"]:checked+label {
+    background-color: var(--dark-button-primary-bg);
+    border-color: var(--dark-button-primary-bg);
+    box-shadow: 0 2px 5px rgba(0, 150, 136, 0.3);
 }
 
-
-/* Option Groups */
 .option-group {
     background-color: var(--option-group-bg);
-    border-radius: 8px;
     padding: 20px;
-    box-shadow: var(--shadow-light);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Spacing between input/checkbox groups */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    gap: 15px;
+    text-align: left;
 }
 
-.hidden {
-    display: none !important;
+body.dark-mode .option-group {
+    background-color: var(--dark-option-group-bg);
+    border-color: var(--dark-border-color);
+}
+
+.option-group hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 10px 0;
+}
+
+body.dark-mode .option-group hr {
+    border-top-color: var(--dark-border-color);
+}
+
+.option-hint {
+    font-size: 0.85em;
+    color: var(--label-color);
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+body.dark-mode .option-hint {
+    color: var(--dark-label-color);
 }
 
 .input-group,
 .checkbox-group {
     display: flex;
     align-items: center;
-    gap: 15px;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 10px;
+    flex-wrap: wrap;
+    /* Allow wrapping on small screens */
 }
 
 .input-group label,
-.checkbox-group label {
+.checkbox-group label,
+.result-area label {
     color: var(--label-color);
-    min-width: 150px; /* Align labels */
     font-weight: 500;
-    flex-shrink: 0;
+    min-width: 150px;
+    /* Ensure labels have some consistent width */
 }
 
-/* Inputs and Textareas */
+body.dark-mode .input-group label,
+body.dark-mode .checkbox-group label,
+body.dark-mode .result-area label {
+    color: var(--dark-label-color);
+}
+
 input[type="number"],
 input[type="text"],
-.result-area input[type="text"] {
-    flex-grow: 1; /* Take up available space */
+.result-area input[type="text"],
+select {
+    flex-grow: 1;
+    /* Allow input to take available space */
     padding: 10px 12px;
-    border: 1px solid var(--input-border);
+    border: 1px solid var(--border-color);
     border-radius: 6px;
-    background-color: var(--input-bg);
-    color: var(--text-color);
     font-size: 1em;
-    min-width: 0; /* Allow input to shrink */
-    box-shadow: inset 0 1px 2px rgba(0,0,0,0.05); /* Inner shadow for depth */
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+    color: var(--text-color);
+    background-color: var(--container-bg);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    min-width: 100px;
+    /* Ensure inputs don't get too small */
+}
+
+body.dark-mode input[type="number"],
+body.dark-mode input[type="text"],
+body.dark-mode .result-area input[type="text"],
+body.dark-mode select {
+    background-color: var(--dark-option-group-bg);
+    border-color: var(--dark-border-color);
+    color: var(--dark-text-color);
 }
 
 input[type="number"]:focus,
 input[type="text"]:focus,
-.result-area input[type="text"]:focus {
+select:focus {
+    border-color: var(--button-primary-bg);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
     outline: none;
-    border-color: var(--input-focus-border);
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Focus ring */
 }
 
-/* Custom Hint for Custom Char Set */
-.option-hint {
-    font-size: 0.8em;
-    color: var(--label-color);
-    margin-top: -10px; /* Adjust spacing as needed */
-    margin-bottom: 10px; /* Reduced gap */
-    display: block;
-    text-align: left;
-    padding-left: calc(150px + 15px); /* Align with input start */
-}
-/* Adjust for smaller screens where labels stack */
-@media (max-width: 600px) {
-    .option-hint {
-        padding-left: 0;
-    }
+body.dark-mode input[type="number"]:focus,
+body.dark-mode input[type="text"]:focus,
+body.dark-mode select:focus {
+    border-color: var(--dark-button-primary-bg);
+    box-shadow: 0 0 0 3px rgba(0, 150, 136, 0.2);
 }
 
-
-/* Checkbox styling */
-.checkbox-group input[type="checkbox"] {
-    /* Hide default checkbox */
-    -webkit-appearance: none;
-    -moz-appearance: none;
+input[type="checkbox"] {
     appearance: none;
+    -webkit-appearance: none;
     width: 20px;
     height: 20px;
-    border: 2px solid var(--input-border);
+    border: 2px solid var(--border-color);
     border-radius: 4px;
-    background-color: var(--input-bg);
     cursor: pointer;
     position: relative;
     transition: background-color 0.2s ease, border-color 0.2s ease;
+    flex-shrink: 0;
+    /* Prevent checkbox from shrinking */
 }
 
-.checkbox-group input[type="checkbox"]:checked {
+body.dark-mode input[type="checkbox"] {
+    border-color: var(--dark-border-color);
+}
+
+input[type="checkbox"]:checked {
     background-color: var(--button-primary-bg);
     border-color: var(--button-primary-bg);
 }
 
-.checkbox-group input[type="checkbox"]:checked::before {
-    content: '✔'; /* Checkmark symbol */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+body.dark-mode input[type="checkbox"]:checked {
+    background-color: var(--dark-button-primary-bg);
+    border-color: var(--dark-button-primary-bg);
+}
+
+input[type="checkbox"]:checked::after {
+    content: '✔';
+    color: #fff;
     font-size: 14px;
-    color: white;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.checkbox-group label {
-    flex-grow: 1; /* Allow label to take space */
+input[type="checkbox"]:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: var(--option-group-bg);
 }
+
+body.dark-mode input[type="checkbox"]:disabled {
+    background-color: var(--dark-option-group-bg);
+}
+
 
 /* Strength Indicator */
 .strength-indicator-area {
+    text-align: left;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .strength-indicator-area label {
@@ -299,182 +403,562 @@ input[type="text"]:focus,
     font-weight: 500;
 }
 
+body.dark-mode .strength-indicator-area label {
+    color: var(--dark-label-color);
+}
+
 .strength-bar-container {
     background-color: var(--strength-bar-bg);
-    border-radius: 10px;
-    height: 10px;
+    border-radius: 8px;
+    height: 12px;
     overflow: hidden;
     margin-bottom: 8px;
-    box-shadow: inset 0 1px 2px rgba(0,0,0,0.05); /* Inner shadow */
+    border: 1px solid var(--border-color);
+}
+
+body.dark-mode .strength-bar-container {
+    background-color: var(--dark-strength-bar-bg);
+    border-color: var(--dark-border-color);
 }
 
 .strength-bar {
     height: 100%;
     width: 0%;
-    border-radius: 10px;
-    transition: width 0.3s ease-out, background-color 0.3s ease;
+    border-radius: 8px;
+    transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
-.strength-bar.score-0 { background-color: #e74c3c; } /* Red - Very Weak */
-.strength-bar.score-1 { background-color: #e67e22; } /* Orange - Weak */
-.strength-bar.score-2 { background-color: #f1c40f; } /* Yellow - Fair */
-.strength-bar.score-3 { background-color: #2ecc71; } /* Green - Good */
-.strength-bar.score-4 { background-color: #3498db; } /* Blue - Strong */
+.strength-bar.score-0 {
+    background-color: var(--score-0-color);
+}
+
+.strength-bar.score-1 {
+    background-color: var(--score-1-color);
+}
+
+.strength-bar.score-2 {
+    background-color: var(--score-2-color);
+}
+
+.strength-bar.score-3 {
+    background-color: var(--score-3-color);
+}
+
+.strength-bar.score-4 {
+    background-color: var(--score-4-color);
+}
 
 .strength-text {
     font-weight: 600;
-    text-align: right;
-    font-size: 0.9em;
-    color: var(--label-color); /* Default text color */
+    margin-bottom: 5px;
     transition: color 0.3s ease;
 }
-.strength-text.score-0 { color: #e74c3c; }
-.strength-text.score-1 { color: #e67e22; }
-.strength-text.score-2 { color: #f1c40f; }
-.strength-text.score-3 { color: #2ecc71; }
-.strength-text.score-4 { color: #3498db; }
 
+.strength-text.score-0 {
+    color: var(--score-0-color);
+}
 
-/* Buttons */
+.strength-text.score-1 {
+    color: var(--score-1-color);
+}
+
+.strength-text.score-2 {
+    color: var(--score-2-color);
+}
+
+.strength-text.score-3 {
+    color: var(--score-3-color);
+}
+
+.strength-text.score-4 {
+    color: var(--score-4-color);
+}
+
+.recommendation-text {
+    font-size: 0.9em;
+    color: var(--label-color);
+    margin-top: 5px;
+}
+
+body.dark-mode .recommendation-text {
+    color: var(--dark-label-color);
+}
+
+/* Button Group */
 .button-group {
     display: flex;
-    justify-content: space-between;
     gap: 15px;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 button {
-    flex: 1; /* Distribute space evenly */
-    padding: 12px 20px;
+    padding: 12px 25px;
     border: none;
     border-radius: 8px;
-    cursor: pointer;
-    font-size: 1.05em;
+    font-size: 1.1em;
     font-weight: 600;
-    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease, color 0.2s ease;
-    box-shadow: var(--shadow-button); /* Initial button shadow */
-    min-width: 150px; /* Ensure buttons don't get too small */
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
+    /* Allow buttons to expand */
+    max-width: 200px;
+    /* Limit max width */
 }
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: var(--button-secondary-bg);
+    /* Use secondary color for disabled */
+    box-shadow: none;
+    transform: none;
+}
+
+body.dark-mode button:disabled {
+    background-color: var(--dark-button-secondary-bg);
+}
+
 
 #generateBtn {
     background-color: var(--button-primary-bg);
-    color: #ffffff;
+    color: #fff;
 }
 
 #generateBtn:hover {
     background-color: var(--button-primary-hover-bg);
-    transform: translateY(-1px); /* Slight lift */
-    box-shadow: rgba(0, 123, 255, 0.35) 0px 5px 10px;
 }
-#generateBtn:active {
-    transform: translateY(0); /* Press effect */
-    box-shadow: rgba(0, 123, 255, 0.2) 0px 2px 4px inset; /* Inner shadow for press */
+
+body.dark-mode #generateBtn {
+    background-color: var(--dark-button-primary-bg);
+}
+
+body.dark-mode #generateBtn:hover {
+    background-color: var(--dark-button-primary-hover-bg);
 }
 
 #generateAnotherBtn {
     background-color: var(--button-secondary-bg);
-    color: #ffffff;
+    color: #fff;
 }
 
 #generateAnotherBtn:hover {
     background-color: var(--button-secondary-hover-bg);
-    transform: translateY(-1px);
-    box-shadow: rgba(108, 117, 125, 0.35) 0px 5px 10px;
 }
-#generateAnotherBtn:active {
-    transform: translateY(0);
-    box-shadow: rgba(108, 117, 125, 0.2) 0px 2px 4px inset;
+
+body.dark-mode #generateAnotherBtn {
+    background-color: var(--dark-button-secondary-bg);
+}
+
+body.dark-mode #generateAnotherBtn:hover {
+    background-color: var(--dark-button-secondary-hover-bg);
 }
 
 #copyBtn {
     background-color: var(--button-secondary-bg);
-    color: #ffffff;
-    padding: 10px 15px; /* Slightly smaller copy button */
-    font-size: 0.95em;
-    flex: unset; /* Don't stretch the copy button */
-    min-width: auto;
-    width: 80px; /* Fixed width for copy button */
-    margin-left: 10px; /* Space from input */
+    color: #fff;
+    flex-grow: 0;
+    /* Don't let copy button expand too much */
+    max-width: fit-content;
+    margin-left: 10px;
+    /* Space from input */
+    padding: 10px 15px;
+    /* Smaller padding */
+    font-size: 1em;
 }
 
 #copyBtn:hover {
     background-color: var(--button-secondary-hover-bg);
-    transform: translateY(-1px);
-    box-shadow: rgba(108, 117, 125, 0.35) 0px 3px 6px;
 }
-#copyBtn:active {
-    transform: translateY(0);
-    box-shadow: rgba(108, 117, 125, 0.2) 0px 1px 3px inset;
+
+body.dark-mode #copyBtn {
+    background-color: var(--dark-button-secondary-bg);
 }
+
+body.dark-mode #copyBtn:hover {
+    background-color: var(--dark-button-secondary-hover-bg);
+}
+
 
 #copyBtn.copied {
     background-color: var(--button-copied-bg);
-    box-shadow: rgba(40, 167, 69, 0.35) 0px 3px 6px;
+    transform: scale(1.02);
 }
 
+body.dark-mode #copyBtn.copied {
+    background-color: var(--dark-button-copied-bg);
+}
 
-/* Result Area */
 .result-area {
     display: flex;
     align-items: center;
     gap: 10px;
     margin-top: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
-.result-area label {
-    min-width: 120px;
-    flex-shrink: 0;
-    color: var(--label-color);
-    font-weight: 500;
+.result-area input[type="text"] {
+    flex-grow: 1;
+    min-width: 150px;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
-/* Error Message */
 .error-message {
     color: var(--error-color);
-    text-align: center;
-    margin-top: 15px;
-    font-weight: 500;
-    font-size: 0.95em;
+    font-weight: 600;
+    margin-top: -10px;
+    margin-bottom: 15px;
+    min-height: 20px;
+    /* Reserve space to prevent layout shift */
+    opacity: 1;
+    transition: opacity 0.3s ease;
 }
 
-/* Separator Line */
-hr {
-    border: none;
-    border-top: 1px solid var(--border-color);
+.error-message.hidden {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* Tooltip Styles */
+.tooltip-container {
+    position: relative;
+    display: flex;
+    /* Keep existing flex behavior */
+    align-items: center;
+}
+
+.tooltip-icon {
+    font-size: 0.8em;
+    font-weight: 700;
+    background-color: var(--label-color);
+    color: var(--container-bg);
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: help;
+    margin-left: 5px;
+    /* Space from label */
+    position: relative;
+    /* For tooltip text positioning */
+    z-index: 1;
+    /* Ensure icon is above other elements if needed */
+}
+
+body.dark-mode .tooltip-icon {
+    background-color: var(--dark-label-color);
+    color: var(--dark-container-bg);
+}
+
+.tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: var(--text-color);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 10px;
+    position: absolute;
+    z-index: 10;
+    bottom: 125%;
+    /* Position above the icon */
+    left: 50%;
+    margin-left: -100px;
+    /* Center the tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.85em;
+    line-height: 1.4;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+    /* Allow clicks to pass through to elements behind */
+}
+
+body.dark-mode .tooltip-text {
+    background-color: var(--dark-container-bg);
+    color: var(--dark-text-color);
+    border: 1px solid var(--dark-border-color);
+}
+
+/* Tooltip arrow */
+.tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--text-color) transparent transparent transparent;
+}
+
+body.dark-mode .tooltip-text::after {
+    border-color: var(--dark-container-bg) transparent transparent transparent;
+}
+
+.tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Loading Indicator Styles */
+.loading-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--label-color);
+    font-weight: 500;
     margin: 15px 0;
 }
 
+body.dark-mode .loading-indicator {
+    color: var(--dark-label-color);
+}
 
-/* Responsive Design */
+.loading-indicator.hidden {
+    display: none;
+}
+
+.spinner {
+    border: 4px solid rgba(0, 123, 255, 0.2);
+    /* Light blue */
+    border-top: 4px solid var(--button-primary-bg);
+    /* Primary blue */
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+}
+
+body.dark-mode .spinner {
+    border: 4px solid rgba(0, 150, 136, 0.2);
+    /* Light teal */
+    border-top: 4px solid var(--dark-button-primary-bg);
+    /* Primary teal */
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Password History Styles */
+.history-area {
+    margin-top: 30px;
+    text-align: left;
+    background-color: var(--option-group-bg);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+body.dark-mode .history-area {
+    background-color: var(--dark-option-group-bg);
+    border-color: var(--dark-border-color);
+}
+
+.history-area h2 {
+    font-size: 1.3em;
+    color: var(--text-color);
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+body.dark-mode .history-area h2 {
+    color: var(--dark-text-color);
+}
+
+#passwordHistoryList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--container-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    font-family: 'monospace', 'Courier New', Courier, monospace;
+    /* Monospace for passwords */
+    font-size: 0.95em;
+    color: var(--text-color);
+    word-break: break-all;
+    /* Break long passwords */
+    gap: 10px;
+}
+
+body.dark-mode .history-item {
+    background-color: var(--dark-container-bg);
+    border-color: var(--dark-border-color);
+    color: var(--dark-text-color);
+}
+
+.history-item:last-child {
+    margin-bottom: 0;
+}
+
+.history-password-text {
+    flex-grow: 1;
+    font-weight: 500;
+}
+
+.history-placeholder {
+    text-align: center;
+    color: var(--label-color);
+    font-style: italic;
+    padding: 10px;
+}
+
+body.dark-mode .history-placeholder {
+    color: var(--dark-label-color);
+}
+
+.copy-history-btn {
+    background-color: var(--button-secondary-bg);
+    color: #fff;
+    padding: 6px 10px;
+    font-size: 0.8em;
+    border-radius: 6px;
+    box-shadow: none;
+    /* Remove button shadow for smaller buttons */
+    flex-shrink: 0;
+    /* Prevent button from shrinking */
+}
+
+.copy-history-btn:hover {
+    background-color: var(--button-secondary-hover-bg);
+    transform: none;
+    /* No transform for smaller buttons */
+    box-shadow: none;
+}
+
+body.dark-mode .copy-history-btn {
+    background-color: var(--dark-button-secondary-bg);
+}
+
+body.dark-mode .copy-history-btn:hover {
+    background-color: var(--dark-button-secondary-hover-bg);
+}
+
+/* NEW: Radio Group for Capitalization Options */
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allow wrapping */
+    gap: 10px;
+    /* Space between radio buttons */
+    flex-grow: 1;
+    /* Allow it to take available space */
+}
+
+.radio-group input[type="radio"] {
+    display: none;
+    /* Hide default radio button */
+}
+
+.radio-group label {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    flex-shrink: 0;
+    /* Prevent labels from shrinking */
+    text-align: center;
+    /* Center text within label */
+    min-width: 60px;
+    /* Ensure a minimum width for labels */
+}
+
+body.dark-mode .radio-group label {
+    color: var(--dark-text-color);
+    border-color: var(--dark-border-color);
+}
+
+.radio-group input[type="radio"]:checked+label {
+    background-color: var(--button-primary-bg);
+    color: #fff;
+    border-color: var(--button-primary-bg);
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3);
+}
+
+body.dark-mode .radio-group input[type="radio"]:checked+label {
+    background-color: var(--dark-button-primary-bg);
+    border-color: var(--dark-button-primary-bg);
+    box-shadow: 0 2px 5px rgba(0, 150, 136, 0.3);
+}
+
+
+/* Responsive Adjustments */
 @media (max-width: 600px) {
     body {
         padding: 10px;
-        align-items: flex-start; /* Align to top on small screens */
+        /* Reduce overall padding */
     }
 
     .container {
-        padding: 20px;
-        border-radius: 8px;
-        gap: 15px;
+        padding: 15px;
+        margin: 5px;
+        /* Reduce margin */
     }
 
     h1 {
-        font-size: 1.8em;
+        font-size: 1.6em;
+    }
+
+    .theme-toggle {
+        top: 10px;
+        right: 10px;
     }
 
     .generation-type-selection {
         flex-direction: column;
-        gap: 10px;
-        padding: 15px;
+        gap: 8px;
+        padding: 10px;
     }
+
     .generation-type-selection label {
-        width: 100%;
-        text-align: center;
-        padding: 10px 0;
+        padding: 8px 0;
+        font-size: 0.9em;
     }
 
     .option-group {
-        padding: 15px;
+        padding: 10px;
         gap: 10px;
     }
 
@@ -482,53 +966,87 @@ hr {
     .checkbox-group {
         flex-direction: column;
         align-items: flex-start;
-        gap: 8px;
+        gap: 6px;
     }
 
     .input-group label,
     .checkbox-group label,
     .result-area label {
-        min-width: unset;
         width: 100%;
         margin-bottom: 0;
+        font-size: 0.9em;
     }
 
     input[type="number"],
     input[type="text"],
-    .result-area input[type="text"] {
+    .result-area input[type="text"],
+    select {
         width: 100%;
-        min-width: unset;
+        font-size: 0.9em;
+        padding: 8px 10px;
     }
 
     .button-group {
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
     }
 
     button {
-        width: 100%;
-        min-width: unset;
+        padding: 10px 20px;
+        font-size: 1em;
     }
 
     #copyBtn {
-        width: 100%; /* Make copy button full width on small screens too */
         margin-left: 0;
-        margin-top: 10px; /* Space if input wraps above it */
+        padding: 8px 12px;
+        font-size: 0.9em;
     }
 
     .result-area {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
+        align-items: stretch;
     }
-}
 
-/* Very small screens adjustments (e.g., older phones) */
-@media (max-width: 380px) {
-    .container {
+    .tooltip-text {
+        width: 160px;
+        /* Further adjust tooltip width */
+        margin-left: -80px;
+        font-size: 0.8em;
+        padding: 6px 8px;
+    }
+
+    .history-area {
         padding: 15px;
     }
-    h1 {
-        font-size: 1.5em;
+
+    .history-area h2 {
+        font-size: 1.1em;
+    }
+
+    .history-item {
+        padding: 8px 12px;
+        font-size: 0.85em;
+    }
+
+    .copy-history-btn {
+        padding: 5px 8px;
+        font-size: 0.7em;
+    }
+
+    /* Responsive adjustments for new radio group */
+    .radio-group {
+        flex-direction: row;
+        /* Keep horizontal for radio buttons */
+        justify-content: flex-start;
+        gap: 8px;
+    }
+
+    .radio-group label {
+        padding: 6px 10px;
+        font-size: 0.8em;
+        min-width: unset;
+        /* Let content dictate width */
+        flex-grow: 1;
+        /* Allow labels to grow if space permits */
     }
 }
