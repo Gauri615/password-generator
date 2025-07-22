@@ -1,114 +1,281 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Password Generator</title> <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <div class="theme-toggle">
-            <input type="checkbox" id="darkModeToggle">
-            <label for="darkModeToggle">Dark Mode</label>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Modern Password Generator</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="theme-toggle">
+                <input type="checkbox" id="darkModeToggle" />
+                <label for="darkModeToggle">Dark Mode</label>
+            </div>
+
+            <h1>Password Generator</h1>
+
+            <div class="generation-type-selection">
+                <input
+                    type="radio"
+                    id="typePassword"
+                    name="generationType"
+                    value="password"
+                    checked
+                />
+                <label for="typePassword">Random Character Password</label>
+                <input
+                    type="radio"
+                    id="typePassphrase"
+                    name="generationType"
+                    value="passphrase"
+                />
+                <label for="typePassphrase">Passphrase</label>
+            </div>
+
+            <div id="passwordOptions" class="option-group">
+                <div class="input-group">
+                    <label for="passwordLength">Password Length:</label>
+                    <input
+                        type="number"
+                        id="passwordLength"
+                        value="12"
+                        min="6"
+                        max="30"
+                    />
+                </div>
+
+                <div class="input-group">
+                    <label for="customCharacterSet"
+                        >Use ONLY these characters (optional):</label
+                    >
+                    <input
+                        type="text"
+                        id="customCharacterSet"
+                        placeholder="e.g., abcXYZ123!@#$%"
+                    />
+                </div>
+                <small class="option-hint"
+                    >If provided, this overrides "Include" options below.
+                    "Exclude" options still apply.</small
+                >
+                <hr />
+                <div class="checkbox-group">
+                    <input type="checkbox" id="includeUppercase" checked />
+                    <label for="includeUppercase"
+                        >Include Uppercase Letters</label
+                    >
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="includeLowercase" checked />
+                    <label for="includeLowercase"
+                        >Include Lowercase Letters</label
+                    >
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="includeDigits" checked />
+                    <label for="includeDigits">Include Numbers</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="includeSymbols" checked />
+                    <label for="includeSymbols">Include Symbols</label>
+                </div>
+
+                <!-- Minimum Character Type Count with Tooltip -->
+                <div class="checkbox-group tooltip-container">
+                    <input type="checkbox" id="requireMinCharTypes" />
+                    <label for="requireMinCharTypes"
+                        >Ensure at least one of each selected type</label
+                    >
+                    <span class="tooltip-icon"
+                        >?
+                        <span class="tooltip-text"
+                            >Guarantees the password contains at least one
+                            character from each enabled type (uppercase,
+                            lowercase, digit, symbol).</span
+                        >
+                    </span>
+                </div>
+
+                <!-- No Repeating Characters with Tooltip -->
+                <div class="checkbox-group tooltip-container">
+                    <input type="checkbox" id="noRepeatingChars" />
+                    <label for="noRepeatingChars"
+                        >No immediate repeating characters</label
+                    >
+                    <span class="tooltip-icon"
+                        >?
+                        <span class="tooltip-text"
+                            >Prevents characters from appearing consecutively
+                            (e.g., "aa", "11").</span
+                        >
+                    </span>
+                </div>
+
+                <div class="checkbox-group tooltip-container">
+                    <!-- Updated label for "Exclude Similar Characters" with Tooltip -->
+                    <input type="checkbox" id="excludeAmbiguous" />
+                    <label for="excludeAmbiguous"
+                        >Exclude Similar/Ambiguous Characters</label
+                    >
+                    <span class="tooltip-icon"
+                        >?
+                        <span class="tooltip-text"
+                            >Excludes characters that can be easily confused,
+                            like 'l', '1', 'I', 'O', '0'.</span
+                        >
+                    </span>
+                </div>
+                <div class="input-group">
+                    <label for="excludeCustomChars"
+                        >Exclude Custom Characters:</label
+                    >
+                    <input
+                        type="text"
+                        id="excludeCustomChars"
+                        placeholder='e.g., ".,;!"'
+                    />
+                </div>
+            </div>
+
+            <div id="passphraseOptions" class="option-group hidden">
+                <div class="input-group">
+                    <label for="numWords">Number of Words:</label>
+                    <input
+                        type="number"
+                        id="numWords"
+                        value="4"
+                        min="2"
+                        max="10"
+                    />
+                </div>
+                <div class="input-group">
+                    <label for="wordSeparator">Word Separator:</label>
+                    <input type="text" id="wordSeparator" value="-" />
+                </div>
+                <div class="checkbox-group">
+                    <input
+                        type="checkbox"
+                        id="passphraseIncludeDigit"
+                        checked
+                    />
+                    <label for="passphraseIncludeDigit">Include a Digit</label>
+                </div>
+                <div class="checkbox-group">
+                    <input
+                        type="checkbox"
+                        id="passphraseIncludeSymbol"
+                        checked
+                    />
+                    <label for="passphraseIncludeSymbol"
+                        >Include a Symbol</label
+                    >
+                </div>
+
+                <!-- Wordlist Options -->
+                <div class="input-group">
+                    <label for="wordlistSelect">Choose Wordlist:</label>
+                    <select id="wordlistSelect">
+                        <option value="eff_long_wordlist.txt">
+                            EFF Long Wordlist
+                        </option>
+                        <option value="eff_short_wordlist.txt">
+                            EFF Short Wordlist (dummy)
+                        </option>
+                    </select>
+                </div>
+
+                <!-- NEW: Capitalization Options for Passphrases -->
+                <hr />
+                <div class="input-group">
+                    <label>Capitalization:</label>
+                    <div class="radio-group">
+                        <input
+                            type="radio"
+                            id="capNone"
+                            name="passphraseCapitalization"
+                            value="none"
+                            checked
+                        />
+                        <label for="capNone">None</label>
+                        <input
+                            type="radio"
+                            id="capFirst"
+                            name="passphraseCapitalization"
+                            value="first"
+                        />
+                        <label for="capFirst">First Letter</label>
+                        <input
+                            type="radio"
+                            id="capAll"
+                            name="passphraseCapitalization"
+                            value="all"
+                        />
+                        <label for="capAll">All Words</label>
+                        <input
+                            type="radio"
+                            id="capRandom"
+                            name="passphraseCapitalization"
+                            value="random"
+                        />
+                        <label for="capRandom">Random</label>
+                    </div>
+                </div>
+
+                <!-- NEW: Number/Symbol Placement Options -->
+                <div class="input-group">
+                    <label for="placementSelect"
+                        >Number/Symbol Placement:</label
+                    >
+                    <select id="placementSelect">
+                        <option value="random">Random</option>
+                        <option value="start">Start</option>
+                        <option value="end">End</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="strength-indicator-area">
+                <label>Expected Password Strength:</label>
+                <div class="strength-bar-container">
+                    <div id="strengthBar" class="strength-bar"></div>
+                </div>
+                <p id="strengthText" class="strength-text"></p>
+                <p
+                    id="charsetRecommendationText"
+                    class="recommendation-text"
+                ></p>
+            </div>
+
+            <!-- Loading Indicator -->
+            <div id="loadingIndicator" class="loading-indicator hidden">
+                <div class="spinner"></div>
+                <span>Generating...</span>
+            </div>
+
+            <div class="button-group">
+                <button id="generateBtn">Generate Password</button>
+                <button id="generateAnotherBtn">Generate Another</button>
+            </div>
+
+            <div class="result-area">
+                <label for="generatedPassword">Generated Password:</label>
+                <input type="text" id="generatedPassword" readonly />
+                <button id="copyBtn">Copy</button>
+            </div>
+
+            <p id="errorMessage" class="error-message"></p>
+
+            <!-- Password History Section -->
+            <div class="history-area">
+                <h2>Recently Generated Passwords</h2>
+                <ul id="passwordHistoryList">
+                    <!-- History items will be inserted here by JavaScript -->
+                </ul>
+            </div>
         </div>
 
-        <h1>Password Generator</h1>
-
-        <div class="generation-type-selection">
-            <input type="radio" id="typePassword" name="generationType" value="password" checked>
-            <label for="typePassword">Random Character Password</label>
-            <input type="radio" id="typePassphrase" name="generationType" value="passphrase">
-            <label for="typePassphrase">Passphrase</label>
-        </div>
-
-        <div id="passwordOptions" class="option-group">
-            <div class="input-group">
-                <label for="passwordLength">Password Length:</label>
-                <input type="number" id="passwordLength" value="12" min="6" max="30">
-            </div>
-
-            <div class="input-group">
-                <label for="customCharacterSet">Use ONLY these characters (optional):</label>
-                <input type="text" id="customCharacterSet" placeholder="e.g., abcXYZ123!@#$%">
-            </div>
-            <small class="option-hint">If provided, this overrides "Include" options below. "Exclude" options still apply.</small>
-            <hr /> <div class="checkbox-group">
-                <input type="checkbox" id="includeUppercase" checked>
-                <label for="includeUppercase">Include Uppercase Letters</label>
-            </div>
-            <div class="checkbox-group">
-                <input type="checkbox" id="includeLowercase" checked>
-                <label for="includeLowercase">Include Lowercase Letters</label>
-            </div>
-            <div class="checkbox-group">
-                <input type="checkbox" id="includeDigits" checked>
-                <label for="includeDigits">Include Numbers</label>
-            </div>
-            <div class="checkbox-group">
-                <input type="checkbox" id="includeSymbols" checked>
-                <label for="includeSymbols">Include Symbols</label>
-            </div>
-            <div class="checkbox-group">
-                <input type="checkbox" id="excludeAmbiguous">
-                <label for="excludeAmbiguous">Exclude Ambiguous Characters (l, 1, I, O, 0)</label>
-            </div>
-            <div class="input-group">
-                <label for="excludeCustomChars">Exclude Custom Characters:</label>
-                <input type="text" id="excludeCustomChars" placeholder="e.g., &quot;.,;!&quot;">
-            </div>
-        </div>
-
-         <div id="passphraseOptions" class="option-group hidden">
-            <div class="input-group">
-                <label for="numWords">Number of Words:</label>
-                <input type="number" id="numWords" value="4" min="2" max="10">
-            </div>
-            <div class="input-group">
-                <label for="wordSeparator">Word Separator:</label>
-                <input type="text" id="wordSeparator" value="-">
-            </div>
-            <div class="checkbox-group">
-                <input type="checkbox" id="passphraseIncludeDigit" checked>
-                <label for="passphraseIncludeDigit">Include a Digit</label>
-            </div>
-            <div class="checkbox-group">
-                <input type="checkbox" id="passphraseIncludeSymbol" checked>
-                <label for="passphraseIncludeSymbol">Include a Symbol</label>
-            </div>
-        </div>
-<!-- 
-        <div class="strength-indicator-area">
-            <label>Expected Password Strength:</label>
-            <div class="strength-bar-container">
-                <div id="strengthBar" class="strength-bar"></div>
-            </div>
-            <p id="strengthText" class="strength-text"></p>
-        </div> -->
-
-         <div class="strength-indicator-area">
-            <label>Expected Password Strength:</label>
-            <div class="strength-bar-container">
-                <div id="strengthBar" class="strength-bar"></div>
-            </div>
-            <p id="strengthText" class="strength-text"></p>
-            <p id="charsetRecommendationText" class="recommendation-text"></p> </div>
-
-        <div class="button-group">
-            <button id="generateBtn">Generate Password</button>
-            <button id="generateAnotherBtn">Generate Another</button>
-        </div>
-
-
-        <div class="result-area">
-            <label for="generatedPassword">Generated Password:</label>
-            <input type="text" id="generatedPassword" readonly>
-            <button id="copyBtn">Copy</button>
-        </div>
-
-        <p id="errorMessage" class="error-message"></p>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
-    <script src="script.js"></script>
-</body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
+        <script src="script.js"></script>
+    </body>
 </html>
